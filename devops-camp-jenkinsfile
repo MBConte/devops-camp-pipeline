@@ -51,7 +51,7 @@ pipeline {
         stage('Database docker build') {
             steps {
                 echo "Building database image"
-                withCredentials([usernameColonPassword(credentialsId: '<YOUR HARBOR CREDENTIAL NAME>', variable: 'HARBOR-AUTH')]) {
+                withCredentials([usernameColonPassword(credentialsId: 'student17', variable: 'HARBOR-AUTH')]) {
                     script {
                         docker.build('$APP_IMAGE_NAME-$APP_HASH', '-f ./app/Dockerfile ./afs-labs-student')
                         docker.withRegistry('https://$HARBOR_REGISTRY', '<YOUR HARBOR CREDENTIAL NAME>') {
