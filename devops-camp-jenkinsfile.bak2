@@ -47,11 +47,10 @@ pipeline {
                 }
             }
         }
-        stage('Test'){
-            steps {
+        stage('Testing') {
+	    steps {
                 echo "Testing stage"
             }
-        }
         stage('Deploy') {
             steps {
                 echo "Deployment stage"
@@ -64,5 +63,6 @@ pipeline {
             echo "Clean workspace"
             sh 'rm -rf .git ./*'
         }
+    }
     }
 }
